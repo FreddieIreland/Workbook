@@ -8,6 +8,12 @@ public class Collect
 	private Student stu;
 	private int close;
 	private int c;
+	private int month;
+	private int day;
+	private int year;
+	private int days;
+	private int index;
+	private int counter=0;
 	public Collect(String file)
 	{
 		list = new ArrayList<Student>();
@@ -18,10 +24,27 @@ public class Collect
 			list.add(stu);
 		}
 	}
-	public String getClosestBday(int month, int day, int year)
+	public Student getClosestBday(int m, int d, int y)
 	{
-		Student joe[] = new Student[list.size()];
-		return joe[c].getBirthday();
+		days=0;
+		month=m;
+		day=d;
+		while (true)
+		{
+			if (list.get(counter).getMonth() < month)
+			{
+				list.remove(counter);
+			}
+			else
+			{
+				if (list.get(counter).getMonth() >= month)
+				{
+					System.out.print(list.get(counter));
+					break;
+				}
+			}
+		}
+		return list.get(0);
 	}
 	public String toString()
 	{
